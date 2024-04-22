@@ -8,7 +8,10 @@ using HotChocolate;
 var builder = WebApplication.CreateBuilder(args);
 
 // Insert the query class into the graphQL server
-builder.Services.AddGraphQLServer().AddQueryType<Query>();
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddFiltering();
 
 var app = builder.Build();
 app.MapGraphQL();
