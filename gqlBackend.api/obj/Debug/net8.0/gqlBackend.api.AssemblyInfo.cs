@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gqlBackend.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f8cd4eca5253cabb707a6f051ab03d635a650f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+083326cebca39acecfcce669a411aa71f417f6a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("gqlBackend.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gqlBackend.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
