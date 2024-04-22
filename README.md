@@ -3,6 +3,7 @@ This repository contains some brief implementation of a graphQL based API.
 
 ## Built with
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+
 GraphQL implemented using [HotChocolate](https://chillicream.com/docs/hotchocolate/v13).
 
 ## How to run
@@ -11,9 +12,9 @@ Download the project, then navigate to the `gqlBackend.api` folder and run the c
 dotnet run
 ```
 
-The server will then be available on the url 
-`localhost:5000/graphql`
-the specific port might change depending on your machine.
+The server will then be available at the address: `localhost:5000/graphql`
+
+The specific port might change depending on your machine.
 
 ## Data
 The data is not connected to anything at the moment, its just 3 movies with 3 actors to test out queries. 
