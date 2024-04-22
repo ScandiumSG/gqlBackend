@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddSorting()
     .AddFiltering();
 
 var app = builder.Build();

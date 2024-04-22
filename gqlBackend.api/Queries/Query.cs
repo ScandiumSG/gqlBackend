@@ -15,6 +15,7 @@ namespace gqlBackend.api.Queries
             new Movie("Movie C", "Something happens.", 2020, new List<Actor> { actor1, actor3 }),
         };
 
+        [UseSorting]
         [UseFiltering]
         public IEnumerable<Movie> GetMovie(int year = 0, [GraphQLName("movie_name")] string name = "")
         {
