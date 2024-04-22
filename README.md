@@ -2,7 +2,8 @@
 This repository contains some brief implementation of a graphQL based API.
 
 ## Built with
-C#, .NET, HotChocolate
+![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+GraphQL implemented using [HotChocolate](https://chillicream.com/docs/hotchocolate/v13).
 
 ## How to run
 Download the project, then navigate to the `gqlBackend.api` folder and run the command 
@@ -68,7 +69,135 @@ The data is not connected to anything at the moment, its just 3 movies with 3 ac
 ## Examples
 GraphQL fetches data differently than REST APIs, here are some examples: 
 
-### Filter based on movie year
+### Retrieve all movies, return name and description for each
+<details>
+    <summary>Query</summary>
+
+
+    {
+      movie {
+        name
+        description
+      }
+    }
+</details>
+
+<details>
+    <summary>Response</summary>
+
+    {
+      "data": {
+        "movie": [
+          {
+            "name": "Movie A",
+            "description": "Something happens!"
+          },
+          {
+            "name": "Movie B",
+            "description": "Something happens?"
+          },
+          {
+            "name": "Movie C",
+            "description": "Something happens."
+          }
+        ]
+      }
+    }
+</details>
+
+### Retrieve all movies with name, and include all actors by name associated with the movie.
+<details>
+    <summary>Query</summary>
+
+    {
+      movie {
+        name
+        description
+      }
+    }
+</details>
+
+<details>
+    <summary>Response</summary>
+
+    {
+      "data": {
+        "movie": [
+          {
+            "name": "Movie A",
+            "actors": [
+              {
+                "name": "Actor A"
+              },
+              {
+                "name": "Actor B"
+              }
+            ]
+          },
+          {
+            "name": "Movie B",
+            "actors": [
+              {
+                "name": "Actor B"
+              },
+              {
+                "name": "Actor C"
+              }
+            ]
+          },
+          {
+            "name": "Movie C",
+            "actors": [
+              {
+                "name": "Actor A"
+              },
+              {
+                "name": "Actor C"
+              }
+            ]
+          }
+        ]
+      }
+    }
+</details>
+
+### Sort movie based on release year descending
+<details>
+    <summary>Query</summary>
+
+    {
+      movie (order: {year: DESC}){
+        name
+        year
+      }
+    }
+</details>
+
+<details>
+    <summary>Response</summary>
+
+    {
+      "data": {
+        "movie": [
+          {
+            "name": "Movie C",
+            "year": 2020
+          },
+          {
+            "name": "Movie B",
+            "year": 2000
+          },
+          {
+            "name": "Movie A",
+            "year": 1980
+          }
+        ]
+      }
+    }
+</details>
+
+### Filter based on movie year, less (earlier) than 1990 or greater (later) than 2010
+
 <details>
     <summary>Query</summary>
 
