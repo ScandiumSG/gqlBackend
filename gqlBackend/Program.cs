@@ -17,8 +17,6 @@ builder.Services
 var app = builder.Build();
 app.MapGraphQL();
 
-app.UseHttpsRedirection();
-
 app.Run();
 
 
