@@ -7,6 +7,13 @@ using HotChocolate;
 
 var builder = WebApplication.CreateBuilder(args);
 
+/*
+builder.WebHost.ConfigureKestrel(opt =>
+{
+    opt.ListenLocalhost(5999);
+});
+*/
+
 // Insert the query class into the graphQL server
 builder.Services
     .AddGraphQLServer()
