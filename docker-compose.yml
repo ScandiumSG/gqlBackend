@@ -11,6 +11,9 @@ services:
       - "8080:8080"
     networks: 
       - gql-network
+    depends_on:
+        mongoDB:
+          condition: service_healthy
 
   mongoDB:
     container_name: mongodb
@@ -20,6 +23,18 @@ services:
       - 27017:27017
     networks:
       - gql-network
+    volumes:
+      - './.containers/data:/var/lib/mongodb/data'
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  data:
+    driver: local
 
 networks:
   gql-network:
