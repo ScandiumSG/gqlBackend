@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "gqlbackend.api": "StartDebugging"
+        "gqlbackend.api": "StartDebugging",
+        "graphqlbackend": "StartDebugging"
       }
     }
   }
