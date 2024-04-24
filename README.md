@@ -6,15 +6,16 @@ This repository contains some brief implementation of a graphQL based API.
 
 GraphQL implemented using [HotChocolate](https://chillicream.com/docs/hotchocolate/v13).
 
+
 ## How to run
-Download the project, then navigate to the `gqlBackend.api` folder and run the command 
+Down the project and navigate to the project root, then run the command
 ```
-dotnet run
+docker compose down; docker compose build --no-cache; docker compose up -d
 ```
 
-The server will then be available at the address: `localhost:5000/graphql`
+This Docker compose command will build and run the project backend aswell as a mongodb database. 
 
-The specific port might change depending on your machine.
+The server will then be available at the address: `localhost:8080/graphql`
 
 ## Data
 The data is not connected to anything at the moment, its just 3 movies with 3 actors to test out queries. 
