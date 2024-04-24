@@ -10,6 +10,8 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHealthChecks();
+
 builder.Services.Configure<MovieDataDatabaseSettings>(
     builder.Configuration.GetSection("MovieDatabase"));
 
@@ -27,6 +29,8 @@ builder.Services
 
 var app = builder.Build();
 app.MapGraphQL();
+
+app.MapHealthChecks("/healthz");
 
 app.Run();
 

@@ -8,6 +8,7 @@ GraphQL implemented using [HotChocolate](https://chillicream.com/docs/hotchocola
 
 
 ## How to run
+**(Requires Docker dekstop)**
 Down the project and navigate to the project root, then run the command
 ```
 docker compose down; docker compose build --no-cache; docker compose up -d

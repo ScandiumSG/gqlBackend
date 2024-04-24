@@ -24,13 +24,13 @@ services:
     networks:
       - gql-network
     volumes:
-      - './.containers/data:/var/lib/mongodb/data'
+      - './.containers/data:/data/db'
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
       interval: 10s
       timeout: 10s
       retries: 5
-      start_period: 40s
+      start_period: 30s
 
 volumes:
   data:
