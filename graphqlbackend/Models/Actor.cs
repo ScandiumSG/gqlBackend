@@ -1,4 +1,7 @@
-﻿namespace gqlBackend.api.Models
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace graphqlbackend.Models
 {
     public class Actor
     {
@@ -8,6 +11,11 @@
             Age = age;
         }
 
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
+
+        [BsonElement("Full_name")]
         public string Name { get; set; }
 
         public int Age { get; set; }

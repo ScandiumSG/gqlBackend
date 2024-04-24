@@ -1,4 +1,7 @@
-﻿namespace gqlBackend.api.Models
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace graphqlbackend.Models
 {
     public class Movie
     {
@@ -10,9 +13,14 @@
             Actors = actors;
         }
 
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
 
+        [BsonElement("Release_year")]
         public int Year { get; set; }
 
         [UseSorting]

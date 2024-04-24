@@ -10,7 +10,6 @@
     <DockerServiceName>graphqlbackend</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="docker-compose.unused.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
