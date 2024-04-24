@@ -67,7 +67,7 @@ The data is not connected to anything at the moment, its just 3 movies with 3 ac
 </Details>
 </Details>
 
-## Examples
+## Query examples
 GraphQL fetches data differently than REST APIs, here are some examples: 
 
 ### Retrieve all movies, return name and description for each
@@ -254,6 +254,74 @@ GraphQL fetches data differently than REST APIs, here are some examples:
             ]
           }
         ]
+      }
+    }
+</details>
+
+## Mutation examples
+
+Changing data in graphQL is done using mutations, here are some examples:
+
+### Creating new movie, return all information regarding the movie added
+<details>
+    <summary>Mutation</summary>
+
+    mutation ($movie_name: String!, $year: Int!) {
+      createMovie (
+        input: {movie: 
+          {name: $movie_name, description: "Nothing happened", year: $year, 
+            actors: [{name: "Actor A", age: 25}, {name: "Actor B", age: 30}, {name: "Actor C", age: 35}]
+          }
+        }) {
+        movie {
+          id
+          name
+          description
+          year
+          actors {
+            name
+            age
+          }
+        }
+      }
+    }
+</details>
+<details>
+    <summary>Variables example</summary>
+
+    {
+      "movie_name": "Movie about something",
+      "year": 2222
+    }
+</details>
+
+<details>
+    <summary>Response</summary>
+
+    {
+      "data": {
+        "createMovie": {
+          "movie": {
+            "id": "6628bba84810ce245f23db4b",
+            "name": "Movie about something",
+            "description": "Nothing happened",
+            "year": 2222,
+            "actors": [
+              {
+                "name": "Actor A",
+                "age": 25
+              },
+              {
+                "name": "Actor B",
+                "age": 30
+              },
+              {
+                "name": "Actor C",
+                "age": 35
+              }
+            ]
+          }
+        }
       }
     }
 </details>

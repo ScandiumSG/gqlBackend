@@ -18,7 +18,10 @@ builder.Services.AddScoped<MoviesService>();
 // Insert the query class into the graphQL server
 builder.Services
     .AddGraphQLServer()
+    .AddDefaultTransactionScopeHandler()
+    .AddMutationConventions()
     .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
     .AddSorting()
     .AddFiltering();
 

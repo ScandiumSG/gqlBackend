@@ -30,9 +30,19 @@ namespace graphqlbackend.Services
             return await _moviesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task Create(Movie newMovie) 
-        { 
-            await _moviesCollection.InsertOneAsync(newMovie);
+        public async Task<Movie?> Create(Movie newMovie) 
+        {
+            Task res = _moviesCollection.InsertOneAsync(newMovie);
+            await res;
+
+            if (res.IsCompletedSuccessfully)
+            {
+                return newMovie;
+            }
+            else 
+            {
+                return null;
+            }
         }
 
         public async Task Update(string id, Movie updatedMovie) 

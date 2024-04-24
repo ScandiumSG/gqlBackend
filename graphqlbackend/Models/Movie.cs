@@ -5,12 +5,12 @@ namespace graphqlbackend.Models
 {
     public class Movie
     {
-        public Movie(string name, string description, int year, ICollection<Actor> actors)
+        public Movie(string name, string description, int year, ICollection<Actor>? actors)
         {
             Name = name;
             Description = description;
             Year = year;
-            Actors = actors;
+            Actors = actors != null ? actors : new List<Actor>();
         }
 
         [BsonId]
@@ -25,6 +25,6 @@ namespace graphqlbackend.Models
 
         [UseSorting]
         [UseFiltering]
-        public ICollection<Actor> Actors { get; set; }
+        public ICollection<Actor>? Actors { get; set; }
     }
 }
